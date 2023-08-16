@@ -42,6 +42,7 @@ filmGet(filmAux: FilmI){
 
 
   filmAdd() {
+    console.log(this.film)
     this.submited = true;
     if (this.filmForm.valid) {
       this.submited = false;
