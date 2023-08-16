@@ -3,7 +3,7 @@ const dotenv = require("dotenv").config();
 const cors = require("cors");
 const { connect } = require("./src/utils/db");
 const userRoutes = require("./src/api/routes/user.routes");
-const movieRoutes = require("./src/api/routes/movie.routes");
+const filmRoutes = require("./src/api/routes/film.routes");
 const characterRoutes = require("./src/api/routes/character.routes");
 const cloudinary = require("cloudinary").v2;
 
@@ -27,7 +27,7 @@ app.use(
 
 app.use(express.json());
 app.use("/", userRoutes);
-app.use("/Movies", movieRoutes);
+app.use("/Film", filmRoutes);
 app.use("/Character", characterRoutes);
 
 
