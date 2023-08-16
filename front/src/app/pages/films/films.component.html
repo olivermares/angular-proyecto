@@ -1,0 +1,40 @@
+<app-header />
+<main class="main">
+  <div class="gallery">
+    <div class="gallery-card" *ngFor="let film of films" (click)="filmGet(film)">
+      <h4 class="gallery-card-h4">{{ film.title }}</h4>
+      <img
+        class="gallery-card-img"
+        src="{{ film.image }}"
+        alt=" {{ film.title }}"
+      />
+      <a class="gallery-card-a" routerLink="{{ film.id }}">Ver más</a>
+    </div>
+  </div>
+  <div class="formulary">
+    <form class="formulary-add" [formGroup]="filmForm">
+      <div class="formulary-add-element">
+        <input
+          type="text"
+          placeholder="title"
+          formControlName="title"
+        />
+      </div>
+      <div class="formulary-add-element">
+        <input
+          type="text"
+          placeholder="image"
+          formControlName="image"
+        />
+      </div>
+      <div class="formulary-add-element">
+        <button (click)="filmAdd()">Añadir</button>
+      </div>
+      <div class="formulary-add-element">
+        <button (click)="filmDrop()">Borrar</button>
+      </div>
+    </form>
+  </div>
+</main>
+
+<app-footer />
