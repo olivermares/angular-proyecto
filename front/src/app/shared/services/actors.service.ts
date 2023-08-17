@@ -1,26 +1,26 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { CharacterI } from 'src/app/models/interfaces.character';
+import { ActorsI } from 'src/app/models/actors.interfaces';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CharcatersService {
-  url: string = 'http://localhost:5000/character';
+export class ActorsService {
+  url: string = 'http://localhost:5000/actors';
   id!: number;
-  character!: CharacterI;
+  actors!: ActorsI;
 
   constructor(private http: HttpClient) { }
 
-  getCharacters(){
+  getActors(){
     return this.http.get(this.url)
   }
 
-  getharacterById(id: number){
+  getActorById(id: number){
     return this.http.get(`${this.url}/${id}`);
   }
 
-  postCharacter(film: CharacterI){
+  postActors(film: ActorsI){
     return this.http.post(this.url, film)
   }
 }

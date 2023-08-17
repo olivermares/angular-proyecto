@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FilmI } from 'src/app/models/interfaces.film';
+import { MoviesI } from 'src/app/models/movies.interfaces';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class FilmsService {
-  url: string = 'http://localhost:5000/film';
+export class MoviesService {
+  url: string = 'http://localhost:5000/movies';
   id!: number;
-  film!: FilmI;
+  movie!: MoviesI;
   
   constructor(private http: HttpClient) { }
 
-  getFilms(){
+  getMovies(){
     return this.http.get(this.url)
   }
     
@@ -21,20 +21,20 @@ export class FilmsService {
     return this.http.get(`${this.url}/${id}`);
   }
 
-  postFilms(film: FilmI){
+  postMovies(film: MoviesI){
     return this.http.post(this.url, film)
   }
 
-  putFilms(film: FilmI, id: number){
+  putMovies(film: MoviesI, id: number){
     return this.http.put(`${this.url}/${id}`, film)
   }
 
-  deleteFilms(id:number){
+  deleteMovies(id:number){
     return this.http.delete(`${this.url}/${id}`)
   }
 
-  setFilm(film: FilmI){
-    this.film = {...film}
+  setFilm(movie: MoviesI){
+    this.movie = {...movie}
   }
 
   getId(){
