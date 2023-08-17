@@ -1,0 +1,11 @@
+.info {
+  background-color: rgb(7, 7, 7);
+  height: 7vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  &-div {
+    text-decoration: none;
+    font-size: 30px;
+  }
+}

@@ -1,0 +1,36 @@
+.home-header{
+  background-color: rgb(28, 28, 28);
+  text-decoration: none;
+  color: whitesmoke;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  &-logo{
+    &-title{
+      background-color: rgb(28, 28, 28);
+      font-size: 65px;  
+    }
+  }
+
+  &-navbar {
+    background-color: rgb(28, 28, 28);;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+
+    &-a{
+      color: whitesmoke;
+      background-color: rgb(28, 28, 28);
+      font-size: 25px;
+    }
+
+    &-a:hover{
+      color: #F5B540;
+    }
+  }
+}
+
+  

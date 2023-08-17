@@ -1,0 +1,41 @@
+.main {
+  height: 85vh;
+  display: flex;
+  background: linear-gradient(360deg, #091631 31%, #020204 99%);
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.gallery {
+  display: flex;
+  background: linear-gradient(360deg, #091631 31%, #020204 99%);
+  align-items: center;
+  &-card {
+    width: 30%;
+    height: 115px;
+    padding: 5px;
+    &-h4 {
+      font-size: 15px;
+      text-align: center;
+      color: antiquewhite;
+    }
+    &-img {
+      width: 100%;
+    }
+    &-a {
+      width: 100%;
+    }
+  }
+}
+
+.formulary {
+  &-add {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    &-element {
+      padding: 5px;
+    }
+  }
+}
