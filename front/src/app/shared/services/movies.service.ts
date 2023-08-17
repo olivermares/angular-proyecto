@@ -17,7 +17,7 @@ export class MoviesService {
     return this.http.get(this.url)
   }
     
-  getFilmById(id: number){
+  getMoviesById(id: number){
     return this.http.get(`${this.url}/${id}`);
   }
 

@@ -18,7 +18,7 @@ export class MoviesDetailsComponent implements OnInit {
       this.id = Number(params.get('id'));
     })
 
-    this.moviesEp.getFilmById(this.id).subscribe((data:any) => {
+    this.moviesEp.getMoviesById(this.id).subscribe((data:any) => {
       this.movies = {...data}
     })
   }
