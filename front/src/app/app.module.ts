@@ -9,18 +9,15 @@ import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './shared/utils/header/header.component';
 import { FooterComponent } from './shared/utils/footer/footer.component';
 
-import { FilmsComponent } from './pages/films/films.component';
-import { FilmDetailsComponent } from './pages/film-details/film-details.component';
-import { FilmEditComponent } from './pages/film-edit/film-edit.component';
-import { FilmDropComponent } from './pages/film-drop/film-drop.component';
+import { MoviesComponent } from './pages/movies/movies.component';
+import { MoviesDetailsComponent } from './pages/movies-details/movies-details.component';
 
-import { CharactersComponent } from './pages/characters/characters.component';
-import { CharacterDetailsComponent } from './pages/character-details/character-details.component';
-import { CharacterEditComponent } from './pages/character-edit/character-edit.component';
-import { CharacterDropComponent } from './pages/character-drop/character-drop.component';
+import { ActorsComponent } from './pages/actors/actors.component';
+import { ActorsDetailsComponent } from './pages/actors-details/actors-details.component';
 
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { InfoComponent } from './shared/components/info/info.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -29,15 +26,12 @@ import { InfoComponent } from './shared/components/info/info.component';
     NavbarComponent,
     HeaderComponent,
     FooterComponent,
-    FilmsComponent,
-    FilmDetailsComponent,
-    CharactersComponent,
-    CharacterDetailsComponent,
+    MoviesComponent,
+    MoviesDetailsComponent,
+    ActorsComponent,
+    ActorsDetailsComponent,
     InfoComponent,
-    FilmEditComponent,
-    FilmDropComponent,
-    CharacterEditComponent,
-    CharacterDropComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
