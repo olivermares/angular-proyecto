@@ -5,12 +5,17 @@
       <h4 class="gallery-card-h4">{{ film.title }}</h4>
       <img
         class="gallery-card-img"
-        src="{{ film.image }}"
+        
+        src="{{ film.img }}"
         alt=" {{ film.title }}"
       />
       <a class="gallery-card-a" routerLink="{{ film.id }}">Ver más</a>
     </div>
   </div>
+
+  
+
+
   <div class="formulary">
     <form class="formulary-add" [formGroup]="filmForm">
       <div class="formulary-add-element">

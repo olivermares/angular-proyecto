@@ -3,7 +3,8 @@ import { CharacterI } from "./interfaces.character"
 export interface FilmI{
     id?: number,
     title: string,
-    image: object,
+    img: string,
+
 }
 
 export interface FilmDetailI extends FilmI{

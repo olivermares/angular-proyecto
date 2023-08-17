@@ -28,6 +28,15 @@ export class FilmsComponent implements OnInit {
     });
     
     this.filmEP.getFilms().subscribe((data: any) => {
+      console.log('Estoy en getFilms');
+      console.log('data = ', data);
+
+      for (let index = 0; index < data.length; index++) {
+        console.log(data[index].img);
+        
+        
+      }
+      
       this.films = [...data]
     })
 

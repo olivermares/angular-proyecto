@@ -21,6 +21,7 @@ import { CharacterDropComponent } from './pages/character-drop/character-drop.co
 
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { InfoComponent } from './shared/components/info/info.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { InfoComponent } from './shared/components/info/info.component';
     FilmDropComponent,
     CharacterEditComponent,
     CharacterDropComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

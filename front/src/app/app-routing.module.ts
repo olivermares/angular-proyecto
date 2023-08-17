@@ -12,6 +12,7 @@ import { CharactersComponent } from './pages/characters/characters.component';
 import { CharacterDetailsComponent } from './pages/character-details/character-details.component';
 import { CharacterEditComponent } from './pages/character-edit/character-edit.component';
 import { CharacterDropComponent } from './pages/character-drop/character-drop.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 
 const routes: Routes = [
@@ -33,6 +34,9 @@ const routes: Routes = [
     path:'characters/edit', component: CharacterEditComponent
   },{
     path:'characters/drop', component: CharacterDropComponent
+  },
+  {
+    path:'register', component: RegisterComponent
   }
 ];
 
