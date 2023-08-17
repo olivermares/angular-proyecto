@@ -3,8 +3,8 @@ const dotenv = require("dotenv").config();
 const cors = require("cors");
 const { connect } = require("./src/utils/db");
 const userRoutes = require("./src/api/routes/user.routes");
-const filmRoutes = require("./src/api/routes/film.routes");
-const characterRoutes = require("./src/api/routes/character.routes");
+const moviesRoutes = require("./src/api/routes/movies.routes");
+const actorsRoutes = require("./src/api/routes/actors.routes");
 const cloudinary = require("cloudinary").v2;
 
 cloudinary.config({
@@ -27,8 +27,8 @@ app.use(
 
 app.use(express.json());
 app.use("/", userRoutes);
-app.use("/Film", filmRoutes);
-app.use("/Character", characterRoutes);
+app.use("/movies", moviesRoutes);
+app.use("/actors", actorsRoutes);
 
 
 app.listen(PORT, () =>

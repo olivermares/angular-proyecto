@@ -6,26 +6,26 @@ const User = require("../api/models/user.models");
 
 const arrayUsers = [    
     {
-        "name": "juanFe",
+        "email": "juanFe@movies.com",
         "password": "1234", 
         "role": "admin"
     },
     {
-        "name": "antonio",
+        "email": "antonio@movies.com",
         "password": "1234", 
         "role": "admin"
     },
     {
-        "name": "oliver",
+        "email": "oliver@movies.com",
         "password": "1234", 
         "role": "admin"
     },
     {
-        "name": "pepe",
+        "email": "pepe@movies.com",
         "password": "1234"
     },
     {
-        "name": "luis",
+        "email": "luis@movies.com",
         "password": "1234" 
     }
 ];
