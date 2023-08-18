@@ -1,18 +1,17 @@
 <app-header />
 <main class="main">
-  <div class="gallery">
-    <div class="gallery-card" *ngFor="let actor of actors">
-      <h4 class="gallery-card-h4">{{ actor.name }}</h4>
+  <div class="gallery" >
+    <div class="gallery-card" *ngFor="let actor of actors" (click)="selectActor(actor)" >
+      <h4 class="gallery-card-h4" >{{ actor.name }}</h4>
       <img
         class="gallery-card-img"
         src="{{ actor.image }}"
         alt=" {{ actor.name }}"
       />
-      <a class="gallery-card-a" routerLink="{{ actor.id }}">Ver más</a>
     </div>
   </div>
   <div class="formulary">
-    <form class="formulary-add" [formGroup]="actorsForm" (ngSubmit)="actorAdd()">
+    <form class="formulary-add" [formGroup]="actorsForm" (ngSubmit)="addActor()">
       <div class="formulary-add-element">
         <input
           type="text"
@@ -23,21 +22,16 @@
       <div class="formulary-add-element">
         <input
           type="text"
-          placeholder="nickname"
-          formControlName="nickname"
-        />
-      </div>
-      <div class="formulary-add-element">
-        <input
-          type="text"
           placeholder="image"
           formControlName="image"
         />
       </div>
+
       <div class="formulary-add-element">
-        <button>Añadir</button>
+        <button type="submit"[disabled]="!actorsForm.valid">Añadir</button>
       </div>
     </form>
+
   </div>
 </main>
 <app-footer />
