@@ -31,12 +31,6 @@ export class LoginComponent implements OnInit{
     
     console.log('Estoy en el login');
 
-    
-    this.submited = true;
-    if(this.loginForm.valid){
-      console.log('Datos del login correctos');
-      this.api.login(this.loginForm.value).subscribe((data:any) => {       
-        
         localStorage.setItem('token', data.token)
         localStorage.setItem('user', JSON.stringify(data.user))
         this.isLoginFailed = false
@@ -50,7 +44,4 @@ export class LoginComponent implements OnInit{
       })
       
   }
-  }
-
-
 }

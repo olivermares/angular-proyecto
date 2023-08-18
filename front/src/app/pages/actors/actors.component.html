@@ -6,19 +6,23 @@
       <img class="gallery-card-img" src="{{ actor.image }}" alt=" {{ actor.name }}" />
     </div>
   </div>
-  <div class="formulary">
-    <form class="formulary-add" [formGroup]="actorsForm" (ngSubmit)="addActor()">
-      <div class="formulary-add-element">
-        <input type="text" placeholder="name" formControlName="name" />
+    <form class="formulary" [formGroup]="actorsForm" (ngSubmit)="addActor()">
+      <div class="formulary-section">
+        <h1 class="formulary-section-title">Añade un actor</h1>
+        <div class="formulary-section-inputs">
+          <input class="formulary-section-inputs-item"
+            type="text"
+            placeholder="name"
+            formControlName="name"
+          />
+          <input class="formulary-section-inputs-item"
+            type="text"
+            placeholder="image"
+            formControlName="image"
+          />
+        </div>
       </div>
-      <div class="formulary-add-element">
-        <input type="text" placeholder="image" formControlName="image" />
-      </div>
-
-      <div class="formulary-add-element">
-        <button type="submit" [disabled]="!actorsForm.valid">Añadir</button>
-      </div>
+      <button class="formulary-btn" type="submit"[disabled]="!actorsForm.valid">Añadir</button>
     </form>
-  </div>
 </main>
 <app-footer />

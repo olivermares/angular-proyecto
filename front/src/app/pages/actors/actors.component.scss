@@ -1,41 +1,97 @@
 .main {
   height: 85vh;
   display: flex;
-  background: linear-gradient(360deg, #091631 31%, #020204 99%);
-  flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  margin: 0px 64px;
 }
 
-.gallery {
-  display: flex;
-  background: linear-gradient(360deg, #091631 31%, #020204 99%);
-  align-items: center;
+.gallery{
+  columns: 3 100px;
+  margin: 12vh;
+  width: 50%;
+
   &-card {
-    width: 30%;
-    height: 115px;
-    padding: 5px;
+    text-decoration: none;
+    max-width: 100%;
+    position: relative;
+    // border: 1px solid black;
+    overflow: hidden;
+    margin-bottom: 10px;
+
     &-h4 {
-      font-size: 15px;
+      position: absolute;
+      display: none;
+      background-color: rgba(0, 0, 0, 0.672);
       text-align: center;
+      width: 100%;
+      padding: 10px 0px;
+      font-size: 20px;
+      font-family: 'Roboto Condensed', sans-serif;
       color: antiquewhite;
     }
+
     &-img {
-      width: 100%;
+     max-width: 100%;
     }
-    &-a {
-      width: 100%;
+  }
+  &-card:hover {
+    // transform: scale(1.1);
+    h4{
+      display: block;
     }
   }
 }
 
 .formulary {
-  &-add {
-    display: flex;
-    text-align: center;
-    align-items: center;
-    flex-direction: column;
-    &-element {
-      padding: 5px;
+  position: fixed;
+  right: 128px;
+  margin: 12vh 0px;
+  border: 1px;
+  padding: 30px;
+  width: 10%;
+  height: 30%;
+  background-color: whitesmoke;
+  border-radius: 20px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &-section{
+    background-color: whitesmoke;
+
+    &-title{
+      background-color: whitesmoke;
+    }
+
+    &-inputs{ 
+      background-color: whitesmoke;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      &-item {
+        background-color: rgb(255, 189, 109);
+        font-size: 20px;
+        border: 1px;
+        border-radius: 5px;
+        padding: 5px 5px;
+        margin-bottom: 10px;  
+      }
     }
   }
+
+  &-btn{
+    background-color: whitesmoke; 
+    text-align: center;
+    background-color: rgb(28, 28, 28);
+      color: whitesmoke;
+      border: 1px;
+      border-radius: 30px;
+      width: 180px;
+      font-size: 20px;
+      padding: 10px 0px;
+      margin-bottom: 10px;
+}
 }
