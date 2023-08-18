@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit{
         this.router.navigate(['/']);
       },
       err=> {
-        console.log('Login incorrecto: ', err.error.message);         
+        console.log('Login incorrecto: ', err);         
         this.errorMessage = err.error.message;
         this.isLoginFailed = true
 

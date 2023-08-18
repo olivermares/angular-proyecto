@@ -11,5 +11,8 @@
   <a class="home-header-navbar-a" routerLink="/">HOME</a>
   <a class="home-header-navbar-a" routerLink="/movies">PELICULAS</a>
   <a class="home-header-navbar-a" routerLink="/actors">PERSONAJES</a>
+  <a *ngIf="!api.getToken()" class="home-header-navbar-a" routerLink="/login"> INCIAR SESION </a>
+
+  <button *ngIf="api.getToken()" (click)="logout()"> CERRAR SESION </button>
 
 </div>

@@ -7,6 +7,8 @@ import { MoviesDetailsComponent } from './pages/movies-details/movies-details.co
 import { ActorsComponent } from './pages/actors/actors.component';
 import { ActorsDetailsComponent } from './pages/actors-details/actors-details.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { LoginComponent } from './pages/login/login.component';
+import { NotFoundComponentComponent } from './pages/not-found-component/not-found-component.component';
 
 
 const routes: Routes = [
@@ -22,7 +24,22 @@ const routes: Routes = [
     path:'actors/:id', component: ActorsDetailsComponent
   },{
     path:'register', component: RegisterComponent
-  }
+  },
+
+   {
+     path:'login', component: LoginComponent
+   },
+
+  // Si no encuntra la ruta, redirige a /404
+  {  
+    path: '**', redirectTo: '/404'
+  },
+
+  // Pagina 404. Se muestra si no se encuentra la ruta. 
+  {  
+   path: '404', component: NotFoundComponentComponent
+  },
+
 ];
 
 @NgModule({
