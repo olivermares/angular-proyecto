@@ -1,0 +1,37 @@
+<app-header />
+
+<main class="main">
+  <div class="card">
+    <img class="card-img" src="{{ actor.image }}" alt=" {{ actor.name }}" />
+    <p class="card-p">{{actor.name}}</p>
+    <p class="card-p">{{actor.country}}</p>
+    <p class="card-p">{{actor.biografy}}</p>
+  </div>
+
+  <div class="formulary">
+    <form class="formulary-add" [formGroup]="actorForm">
+      <div class="formulary-add-element">
+        <label name="name" >Nombre:</label>
+        <input type="text" name="name" id="name" placeholder="name" formControlName="name" />
+      </div>
+      <div class="formulary-add-element">
+        <label name="image" >Url Imagen:</label>
+        <input type="text" name="image" id="imgae" placeholder="image" formControlName="image" />
+      </div>
+      <div class="formulary-add-element">
+        <label name="biografy" >Biografia:</label>
+        <input type="text" name="biografy" id="biografy" placeholder="biografy" formControlName="biografy" />
+      </div>
+      <div class="formulary-add-element">
+        <label name="country" >Pais:</label>
+        <input type="text" name="country" id="country" placeholder="country" formControlName="country" />
+      </div>
+    </form>
+    <div class="formulary-add-btns">
+      <button (click)="update()">Actualizar</button>
+      <button (click)="drop()">Borrar</button>
+    </div>
+  </div>
+</main>
+
+<app-footer />

@@ -1,0 +1,33 @@
+<app-header />
+<main class="main">
+  <div class="gallery" >
+    <div class="gallery-card" *ngFor="let actor of actors" (click)="selectActor(actor)" >
+      <h4 class="gallery-card-h4" >{{ actor.name }}</h4>
+      <img
+        class="gallery-card-img"
+        src="{{ actor.image }}"
+        alt=" {{ actor.name }}"
+      />
+    </div>
+  </div>
+
+    <form class="formulary" [formGroup]="actorsForm" (ngSubmit)="addActor()">
+      <div class="formulary-section">
+        <h1 class="formulary-section-title">Añade un actor</h1>
+        <div class="formulary-section-inputs">
+          <input class="formulary-section-inputs-item"
+            type="text"
+            placeholder="name"
+            formControlName="name"
+          />
+          <input class="formulary-section-inputs-item"
+            type="text"
+            placeholder="image"
+            formControlName="image"
+          />
+        </div>
+      </div>
+      <button class="formulary-btn" type="submit"[disabled]="!actorsForm.valid">Añadir</button>
+    </form>
+</main>
+

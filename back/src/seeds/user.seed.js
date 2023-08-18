@@ -1,31 +1,37 @@
+const mongoose = require("mongoose");
+const dotenv = require("dotenv").config();
+
+const User = require("../api/models/user.models");
+
+
 const arrayUsers = [    
     {
-        "name": "marta",
+        "email": "juanFe@movies.com",
         "password": "1234", 
         "role": "admin"
     },
     {
-        "name": "miguel",
+        "email": "antonio@movies.com",
         "password": "1234", 
         "role": "admin"
     },
     {
-        "name": "oliver",
+        "email": "oliver@movies.com",
         "password": "1234", 
         "role": "admin"
     },
     {
-        "name": "pepe",
+        "email": "pepe@movies.com",
         "password": "1234"
     },
     {
-        "name": "luis",
+        "email": "luis@movies.com",
         "password": "1234" 
     }
 ];
 
 module.exports= arrayUsers;
-/*
+
 const DB_URL= process.env.DB_URL;
 
 mongoose.connect(DB_URL)
@@ -43,4 +49,4 @@ mongoose.connect(DB_URL)
     console.log("Usuarios insertados correctamente");
 })
 .catch((error) => console.log("Error al insertar los usuarios", error))
-.finally(()=> mongoose.disconnect());*/
+.finally(()=> mongoose.disconnect());
