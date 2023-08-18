@@ -8,7 +8,13 @@ import { ActorsI } from 'src/app/models/actors.interfaces';
 export class ActorsService {
   url: string = 'http://localhost:5000/actors';
   id!: number;
-  actors!: ActorsI;
+  actor!: ActorsI;
+
+  public actorData: any = {
+    id: '',
+    name: '',
+    image: '',
+  };
 
   constructor(private http: HttpClient) { }
 
@@ -16,11 +22,24 @@ export class ActorsService {
     return this.http.get(this.url)
   }
 
-  getActorById(id: number){
-    return this.http.get(`${this.url}/${id}`);
+  editData(actor: ActorsI) {
+    this.actorData = actor;
   }
 
-  postActors(film: ActorsI){
-    return this.http.post(this.url, film)
+  postActor(actor: ActorsI){
+    return this.http.post(this.url, actor)
+  }
+
+  deleteActor(id: any){
+    console.log(`${this.url}/`+1)
+    return this.http.delete(`${this.url}/`+1);
+  }
+
+  clearActor() {
+    this.actorData = {
+      id: '',
+      name: '',
+      image: '',
+    };
   }
 }

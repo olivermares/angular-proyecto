@@ -9,6 +9,7 @@ import { ActorsService } from 'src/app/shared/services/actors.service';
   templateUrl: './actors.component.html',
   styleUrls: ['./actors.component.scss']
 })
+
 export class ActorsComponent {
   actorsForm!: FormGroup;
   submited: boolean = false;
@@ -17,34 +18,37 @@ export class ActorsComponent {
 
   constructor(
     private form: FormBuilder,
-    private actorsEP: ActorsService,
+    private actorsService: ActorsService,
     private router: Router
     ){}
 
   ngOnInit(): void {
     this.actorsForm = this.form.group({
       name: ['', Validators.required],
-      nickname: ['', Validators.required],
       image: ['', Validators.required],
     });
 
-    this.actorsEP.getActors().subscribe((data: any) => {
+    this.actorsService.getActors().subscribe((data: any) => {
       this.actors = [...data]
     });
 
     this.actorsForm.valueChanges.subscribe((data) => {
-      this.actors = { ...data };
+      this.actor = { ...data };
     });
   }
 
+  selectActor(actor: ActorsI){
+    this.actorsService.actorData=actor;
+    this.router.navigate(["actors/" + actor._id]);
+  }
 
-  actorAdd() {
+  addActor() {
+    console.log(this.actor)
     this.submited = true;
     if (this.actorsForm.valid) {
       this.submited = false;
-      this.actorsEP.postActors(this.actor).subscribe((data: any) => {
-        this.actorsForm.reset(); 
-        this.router.navigate(["/actors"])
+      this.actorsService.postActor(this.actor).subscribe((data: any) => {
+        window.location.reload();
       });
     }
   }

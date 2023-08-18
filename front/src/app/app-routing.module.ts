@@ -20,8 +20,7 @@ const routes: Routes = [
     path:'actors', component: ActorsComponent
   },{
     path:'actors/:id', component: ActorsDetailsComponent
-  },
-  {
+  },{
     path:'register', component: RegisterComponent
   }
 ];

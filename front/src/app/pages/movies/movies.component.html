@@ -13,9 +13,6 @@
     </div>
   </div>
 
-  
-
-
   <div class="formulary">
     <form class="formulary-add" [formGroup]="moviesForm">
       <div class="formulary-add-element">
@@ -32,13 +29,14 @@
           formControlName="image"
         />
       </div>
-      <div class="formulary-add-element">
-        <button (click)="movieAdd()">Añadir</button>
-      </div>
-      <div class="formulary-add-element">
-        <button (click)="movieDrop()">Borrar</button>
-      </div>
+
     </form>
+    <div class="formulary-add-element">
+      <button (click)="movieAdd()">Añadir</button>
+    </div>
+    <div class="formulary-add-element">
+      <button (click)="movieDrop()">Borrar</button>
+    </div>
   </div>
 </main>
 
