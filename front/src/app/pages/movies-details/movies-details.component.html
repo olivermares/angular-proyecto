@@ -1,5 +1,23 @@
 <app-header />
 <main class="main">
-</main>
 
+<div class="card">
+    <img class="card-img" src="{{ movie.image }}" alt=" {{ movie}}" />
+  </div>
+
+  <div class="formulary">
+    <form class="formulary-add" [formGroup]="movieForm">
+      <div class="formulary-add-element">
+        <label name="title" >Titulo:</label>
+        <input type="text" name="title" id="title" placeholder="title" formControlName="title" />
+      </div>
+      <div class="formulary-add-element">
+        <label name="image" >Url Imagen:</label>
+        <input type="text" name="image" id="imgae" placeholder="image" formControlName="image" />
+      </div>
+    </form>
+    <button (click)="update()">Actualizar</button>
+    <button (click)="drop()">Borrar</button>
+  </div>
+</main>
 <app-footer />

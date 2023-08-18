@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {UserI} from '../../models/interfaces.user'
+import {UserI} from '../../models/user.interfaces'
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +20,22 @@ export class AuthService {
     return this.http.post(`${this.db_url}/register`, user)
   }
 
+
+  login(user: UserI){
+    return this.http.post(`${this.db_url}/login`, user)
+  }
+
+  getToken(){
+    return localStorage.getItem('token')
+  }
+
+  logout(){
+    localStorage.removeItem('token')
+    localStorage.removeItem('user')
+    
+  }
+
+  
 
 }
 

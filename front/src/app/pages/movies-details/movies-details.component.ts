@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MoviesI } from 'src/app/models/movies.interfaces';
 import { MoviesService } from 'src/app/shared/services/movies.service';
@@ -9,17 +10,29 @@ import { MoviesService } from 'src/app/shared/services/movies.service';
   styleUrls: ['./movies-details.component.scss']
 })
 export class MoviesDetailsComponent implements OnInit {
-  id!: number;
-  movies!: MoviesI
-  constructor(private moviesEp: MoviesService, private activatedRoute: ActivatedRoute, private router: Router){}
+  movieForm!: FormGroup;
+  movie= this.movieService.movieData;
+  movieAux!: MoviesI;
+
+  constructor(
+  private movieService: MoviesService,
+  private router: Router, 
+  private form: FormBuilder,
+  ){}
 
   ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe(params => {
-      this.id = Number(params.get('id'));
+    this.movieForm = this.form.group({
+      title: ['', Validators.required],
+      image: ['', Validators.required],
     })
+  }
 
-    this.moviesEp.getMoviesById(this.id).subscribe((data:any) => {
-      this.movies = {...data}
-    })
+  update(){
+    console.log(this.movie)
+  }
+
+  drop(){
+    this.movieService.deleteMovie(this.movie._id).subscribe(data=>{console.log(data)})
+    this.router.navigate(["/movies"])
   }
 }
