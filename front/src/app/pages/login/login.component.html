@@ -1,0 +1,26 @@
+
+    <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
+        <h2> Login </h2>
+        <div class="form-section">
+            <input class="form-section-input" type="email" placeholder="Email" formControlName="email" />
+            <p *ngIf="(submited && loginForm?.get('email')?.hasError('required'))">El campo es requerido</p>
+            <p *ngIf="(submited && loginForm?.get('email')?.hasError('pattern'))">No tiene formato valido</p>
+        </div>
+        <div class="form-section">
+            <input class="form-section-input" type="password" placeholder="Password" formControlName="password" />
+            <p *ngIf="(submited && loginForm?.get('password')?.hasError('required'))">El campo es requerido</p>
+            <p *ngIf="(submited && loginForm?.get('password')?.hasError('pattern'))">No tiene formato valido</p>
+        </div>
+
+        <p *ngIf="isLoginFailed" style="color: red"> {{errorMessage}}</p>
+        
+        <button>Entrar</button>
+    
+        <p  *ngIf="!isLoginFailed" style="color:white"> {{errorMessage}} </p>
+    
+        <p> ¿No tienes cuenta? <a routerLink="/register"> Registrarse </a> </p>
+    
+    </form>
+    
+    
+      
