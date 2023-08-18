@@ -1,43 +1,30 @@
 <app-header />
 <main class="main">
   <div class="gallery">
-    <div class="gallery-card" *ngFor="let movie of movies" (click)="movieGet(movie)">
+    <a class="gallery-card" *ngFor="let movie of movies" (click)="movieGet(movie)" routerLink="{{ movie.id }}">
+      <img class="gallery-card-img" src="{{ movie.image }}" alt=" {{ movie.title }}">
       <h4 class="gallery-card-h4">{{ movie.title }}</h4>
-      <img
-        class="gallery-card-img"
-        
-        src="{{ movie.image }}"
-        alt=" {{ movie.title }}"
+    </a>
+  </div>
+  <form class="formulary" [formGroup]="moviesForm">
+    <h1 class="formulary-title">¿Quieres añadir una película?</h1>
+    <div class="formulary-inputs">
+      <input class="formulary-inputs-item"
+        type="text"
+        placeholder="title"
+        formControlName="title"
       />
-      <a class="gallery-card-a" routerLink="{{ movie.id }}">Ver más</a>
+      <input class="formulary-inputs-item"
+        type="text"
+        placeholder="image"
+        formControlName="image"
+      />
     </div>
-  </div>
-
-  <div class="formulary">
-    <form class="formulary-add" [formGroup]="moviesForm">
-      <div class="formulary-add-element">
-        <input
-          type="text"
-          placeholder="title"
-          formControlName="title"
-        />
-      </div>
-      <div class="formulary-add-element">
-        <input
-          type="text"
-          placeholder="image"
-          formControlName="image"
-        />
-      </div>
-
-    </form>
-    <div class="formulary-add-element">
-      <button (click)="movieAdd()">Añadir</button>
+    <div class="formulary-btns">
+      <button class="formulary-btns-item" (click)="movieAdd()">Añadir</button>
+      <button class="formulary-btns-item" (click)="movieDrop()">Borrar</button>
     </div>
-    <div class="formulary-add-element">
-      <button (click)="movieDrop()">Borrar</button>
-    </div>
-  </div>
+  </form>
 </main>
 
-<app-footer />
+<!-- <app-footer /> -->

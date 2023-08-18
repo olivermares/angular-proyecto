@@ -43,6 +43,7 @@ const putActor = async (req, res) => {
 };
 
 const deleteActor = async (req, res) => {
+  console.log("Buenas noches")
   try {
     console.log("Borrando actor");
     const {id} = req.params;
