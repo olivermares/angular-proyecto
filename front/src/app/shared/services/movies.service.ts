@@ -10,37 +10,42 @@ export class MoviesService {
   url: string = 'http://localhost:5000/movies';
   id!: number;
   movie!: MoviesI;
+
+  public movieData: any = {
+    id: '',
+    name: '',
+    image: '',
+  };
   
   constructor(private http: HttpClient) { }
 
   getMovies(){
     return this.http.get(this.url)
   }
-    
-  getMoviesById(id: number){
-    return this.http.get(`${this.url}/${id}`);
+
+  editData(movie: MoviesI) {
+    this.movieData = movie;
   }
 
-  postMovies(film: MoviesI){
-    return this.http.post(this.url, film)
+  postMovie(movie: MoviesI){
+    return this.http.post(this.url, movie)
   }
 
-  putMovies(film: MoviesI, id: number){
+  putMovie(film: MoviesI, id: number){
     return this.http.put(`${this.url}/${id}`, film)
   }
 
-  deleteMovies(id:number){
+  deleteMovie(id:string){
     return this.http.delete(`${this.url}/${id}`)
   }
 
-  setFilm(movie: MoviesI){
-    this.movie = {...movie}
+  clearMovie() {
+    this.movieData = {
+      id: '',
+      name: '',
+      image: '',
+    };
   }
-
-  getId(){
-    return this.id; 
-  }
-
 }
 
 

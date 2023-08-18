@@ -5,6 +5,7 @@ const {generateSign} = require("../../utils/jwt")
 
 const register = async (req, res ) => {
     try {
+        console.log("Register user")
         const newUser = new User(req.body)
         if (!validateEmail(newUser.email)) {
             return res.status(400).json({message:" email invalido"})
@@ -27,6 +28,7 @@ const register = async (req, res ) => {
 
 const login = async (req, res) => {
     try {
+        console.log("Login user")
         const userInfo = await User.findOne({email:req.body.email})
 
         if (!userInfo) {
