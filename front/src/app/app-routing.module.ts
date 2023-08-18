@@ -7,6 +7,7 @@ import { MoviesDetailsComponent } from './pages/movies-details/movies-details.co
 import { ActorsComponent } from './pages/actors/actors.component';
 import { ActorsDetailsComponent } from './pages/actors-details/actors-details.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { LoginComponent } from './pages/login/login.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,10 @@ const routes: Routes = [
   },{
     path:'register', component: RegisterComponent
   }
+  // {
+  //   path:'login', component: LoginComponent
+  // }
+
 ];
 
 @NgModule({

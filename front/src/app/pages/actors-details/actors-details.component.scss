@@ -1,8 +1,65 @@
 .main {
-    height: 85vh;
-    display: flex;
-    background: linear-gradient(360deg, #091631 31%, #020204 99%);
-    &-formulary{
-      color: aliceblue;
+  padding-top: 12vh;
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  gap: 64px;
+
+  .card{
+    &-img{
+      width: 400px;
     }
   }
+
+  .formulary{
+    background-color: whitesmoke;
+    padding: 20px;
+    height: 40%;
+    font-size: 25px;
+    border: 1px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &-add{
+      background-color: whitesmoke;
+      &-element{
+        background-color: whitesmoke;
+
+        label{
+          background-color: whitesmoke;
+        }
+        input{
+          margin-left: 5px;
+          background-color: rgb(255, 189, 109);
+          font-size: 20px;
+          border: 1px;
+          border-radius: 5px;
+          padding: 5px 5px;
+          margin-bottom: 10px;  
+        }
+      }
+      &-btns{
+        background-color: whitesmoke;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        align-items: center;
+        button{
+          &:hover{
+            transform: scale(1.05);
+            transition: 300ms;
+          }
+          background-color: rgb(28, 28, 28);
+          color: whitesmoke;
+          border: 1px;
+          border-radius: 30px;
+          width: 180px;
+          font-size: 20px;
+          padding: 10px 0px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}

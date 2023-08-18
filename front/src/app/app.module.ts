@@ -18,6 +18,7 @@ import { ActorsDetailsComponent } from './pages/actors-details/actors-details.co
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { InfoComponent } from './shared/components/info/info.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { RegisterComponent } from './pages/register/register.component';
     ActorsDetailsComponent,
     InfoComponent,
     RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

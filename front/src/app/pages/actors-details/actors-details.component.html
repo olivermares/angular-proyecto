@@ -3,6 +3,9 @@
 <main class="main">
   <div class="card">
     <img class="card-img" src="{{ actor.image }}" alt=" {{ actor.name }}" />
+    <p class="card-p">{{actor.name}}</p>
+    <p class="card-p">{{actor.country}}</p>
+    <p class="card-p">{{actor.biografy}}</p>
   </div>
 
   <div class="formulary">
@@ -24,8 +27,10 @@
         <input type="text" name="country" id="country" placeholder="country" formControlName="country" />
       </div>
     </form>
-    <button (click)="update()">Actualizar</button>
-    <button (click)="drop()">Borrar</button>
+    <div class="formulary-add-btns">
+      <button (click)="update()">Actualizar</button>
+      <button (click)="drop()">Borrar</button>
+    </div>
   </div>
 </main>
 
