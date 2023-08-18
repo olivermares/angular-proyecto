@@ -40,6 +40,7 @@ const putActor = async (req, res) => {
 };
 
 const deleteActor = async (req, res) => {
+  console.log("Buenas noches")
   try {
     const {id} = req.params;
     const deletedActor = await Actors.findByIdAndDelete(id)
