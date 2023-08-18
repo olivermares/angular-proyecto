@@ -2,7 +2,7 @@ const Actors = require("../models/actors.models");
 
 const getActors = async (req, res) => {
   try {
-    console.log("Adquiriendo actores");
+    console.log("Get actors");
     const allActor = await Actors.find();
     return res.status(200).json(allActor);
   } catch (error) {
@@ -12,7 +12,7 @@ const getActors = async (req, res) => {
 
 const postActor = async (req, res) => {
   try {
-    console.log("Añadiendo actor");
+    console.log("Post actor");
     const newActor = new Actors(req.body);
     //newActor.image = req.file.path
     const createdActor = await newActor.save();
@@ -24,11 +24,11 @@ const postActor = async (req, res) => {
 
 const putActor = async (req, res) => {
   try {
-    console.log("Actualizando actor");
+    console.log("Put actor");
     const { id } = req.params;
     const putActor = new Actors(req.body);
     putActor._id = id;
-    putActor.image = req.file.path;
+    //putActor.image = req.file.path;
     console.log(putActor)
     const updatedActor = await Actors.findByIdAndUpdate(id, putActor, {
       new: true,
@@ -43,9 +43,8 @@ const putActor = async (req, res) => {
 };
 
 const deleteActor = async (req, res) => {
-  console.log("Buenas noches")
   try {
-    console.log("Borrando actor");
+    console.log("Delete actor");
     const {id} = req.params;
     console.log(id);
     const deletedActor = await Actors.findByIdAndDelete(id)

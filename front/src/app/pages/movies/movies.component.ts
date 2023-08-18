@@ -7,8 +7,9 @@ import { MoviesService } from 'src/app/shared/services/movies.service';
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
-  styleUrls: ['./movies.component.scss']
+  styleUrls: ['./movies.component.scss'],
 })
+
 export class MoviesComponent implements OnInit {
   moviesForm!: FormGroup;
   submited: boolean = false;
@@ -17,7 +18,7 @@ export class MoviesComponent implements OnInit {
 
   constructor(
     private form: FormBuilder,
-    private movieEP: MoviesService,
+    private moviesService: MoviesService,
     private router: Router
   ) {}
 
@@ -26,37 +27,29 @@ export class MoviesComponent implements OnInit {
       title: ['', Validators.required],
       image: ['', Validators.required],
     });
-    
-    this.movieEP.getMovies().subscribe((data: any) => {
-      for (let index = 0; index < data.length; index++) {  
-      }     
-      this.movies = [...data]
-    })
+
+    this.moviesService.getMovies().subscribe((data: any) => {
+      for (let index = 0; index < data.length; index++) {}
+      this.movies = [...data];
+    });
 
     this.moviesForm.valueChanges.subscribe((data) => {
-      this.movies = { ...data };
+      this.movie = { ...data };
     });
   }
 
-movieGet(movieAux: MoviesI){
-  this.movieEP.setFilm(movieAux)
-}
+  selectMovie(movie: MoviesI){
+    this.moviesService.movieData=movie;
+    this.router.navigate(["movies/" + movie._id]); 
+  }
 
-
-  movieAdd() {
-    console.log(this.movie)
+  addMovie() {
     this.submited = true;
     if (this.moviesForm.valid) {
       this.submited = false;
-      this.movieEP.postMovies(this.movie).subscribe((data: any) => {
-        this.moviesForm.reset(); 
-        this.router.navigate(["/movies"])
+      this.moviesService.postMovie(this.movie).subscribe((data: any) => {
+        window.location.reload();
       });
     }
-  }
-
-  movieDrop() {
-
-    console.log("Borrar")
   }
 }
