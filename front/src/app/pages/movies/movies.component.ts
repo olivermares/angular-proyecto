@@ -28,12 +28,8 @@ export class MoviesComponent implements OnInit {
     });
     
     this.movieEP.getMovies().subscribe((data: any) => {
-      for (let index = 0; index < data.length; index++) {
-        console.log(data[index].img);
-        
-        
-      }
-      
+      for (let index = 0; index < data.length; index++) {  
+      }     
       this.movies = [...data]
     })
 

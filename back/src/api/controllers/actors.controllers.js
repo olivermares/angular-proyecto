@@ -2,6 +2,7 @@ const Actors = require("../models/actors.models");
 
 const getActors = async (req, res) => {
   try {
+    console.log("Adquiriendo actores");
     const allActor = await Actors.find();
     return res.status(200).json(allActor);
   } catch (error) {
@@ -11,8 +12,9 @@ const getActors = async (req, res) => {
 
 const postActor = async (req, res) => {
   try {
+    console.log("Añadiendo actor");
     const newActor = new Actors(req.body);
-    newActor.image = req.file.path
+    //newActor.image = req.file.path
     const createdActor = await newActor.save();
     return res.status(201).json(createdActor);
   } catch (error) {
@@ -22,6 +24,7 @@ const postActor = async (req, res) => {
 
 const putActor = async (req, res) => {
   try {
+    console.log("Actualizando actor");
     const { id } = req.params;
     const putActor = new Actors(req.body);
     putActor._id = id;
@@ -41,7 +44,9 @@ const putActor = async (req, res) => {
 
 const deleteActor = async (req, res) => {
   try {
+    console.log("Borrando actor");
     const {id} = req.params;
+    console.log(id);
     const deletedActor = await Actors.findByIdAndDelete(id)
     if (!deletedActor) {
         return res.status(404).json({message:"este id no existe"})
