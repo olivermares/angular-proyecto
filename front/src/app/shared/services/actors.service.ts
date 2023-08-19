@@ -7,7 +7,7 @@ import { ActorsI } from 'src/app/models/actors.interfaces';
 })
 export class ActorsService {
   url: string = 'http://localhost:5000/actors';
-  id!: number;
+  id!: string | undefined;
   actor!: ActorsI;
 
   public actorData: any = {
@@ -22,27 +22,24 @@ export class ActorsService {
     return this.http.get(this.url)
   }
 
+  getActor(id: any){
+    return this.http.get(`${this.url}/${id}`)
+  }
+
   editData(actor: ActorsI) {
     this.actorData = actor;
+    this.id =actor._id
   }
 
   postActor(actor: ActorsI){
     return this.http.post(this.url, actor)
   }
 
-  putActor(film: ActorsI, id: number){
+  putActor(film: ActorsI, id: any){
     return this.http.put(`${this.url}/${id}`, film)
   }
 
-  deleteActor(id: string){
+  deleteActor(id: any){
     return this.http.delete(`${this.url}/${id}`);
-  }
-
-  clearActor() {
-    this.actorData = {
-      id: '',
-      name: '',
-      image: '',
-    };
   }
 }
