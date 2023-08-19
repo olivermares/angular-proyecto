@@ -1,23 +1,69 @@
 <app-header />
 <main class="main">
-
-<div class="card">
-    <img class="card-img" src="{{ movie.image }}" alt=" {{ movie}}" />
+  <div class="card">
+    <img class="card-img" src="{{ movie.image }}" alt=" {{ movie }}" />
   </div>
-
   <div class="formulary">
     <form class="formulary-add" [formGroup]="movieForm">
       <div class="formulary-add-element">
-        <label name="title" >Titulo:</label>
-        <input type="text" name="title" id="title" placeholder="title" formControlName="title" />
+        <label name="title">Titulo:</label>
+        <input
+          type="text"
+          name="title"
+          id="title"
+          placeholder="{{ movie.title }}"
+          formControlName="title"
+        />
       </div>
       <div class="formulary-add-element">
-        <label name="image" >Url Imagen:</label>
-        <input type="text" name="image" id="imgae" placeholder="image" formControlName="image" />
+        <label name="image">Url Imagen:</label>
+        <input
+          type="text"
+          name="image"
+          id="imgae"
+          placeholder="{{ movie.image }}"
+          formControlName="image"
+        />
       </div>
+      <div class="formulary-add-element">
+        <label name="director">Director:</label>
+        <input
+          type="text"
+          name="director"
+          id="director"
+          placeholder="director"
+          formControlName="director"
+        />
+      </div>
+      <button (click)="update()">Actualizar</button>
+      <button (click)="drop()">Borrar</button>
     </form>
-    <button (click)="update()">Actualizar</button>
-    <button (click)="drop()">Borrar</button>
+  </div>
+  <div>
+    <div *ngFor="let actor of movie.cast">
+      <label>
+        <input
+          type="checkbox"
+          value="{{ actor._id }}"
+          (change)="onCheckboxNoCast($event)"
+        />
+        {{ actor.name }}
+      </label>
+    </div>
+    <button (click)="noCast()">Casting</button>
+  </div>
+  <div>
+    <div *ngFor="let actor of actors">
+      <label>
+        <input
+          type="checkbox"
+          value="{{ actor._id }}"
+          (change)="onCheckboxCast($event)"
+        />
+        {{ actor.name }}
+      </label>
+    </div>
+    <button (click)="cast()">no Casting</button>
   </div>
 </main>
 <app-footer />
