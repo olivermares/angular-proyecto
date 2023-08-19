@@ -10,6 +10,17 @@ const getActors = async (req, res) => {
   }
 };
 
+const getActor = async (req, res) => {
+  try {
+    console.log("Get actor");
+    const { id } = req.params;
+    const actor = await Actors.findById(id);
+    return res.status(200).json(actor);
+  } catch (error) {
+    return res.status(500).json(error);
+  }
+};
+
 const postActor = async (req, res) => {
   try {
     console.log("Post actor");
@@ -57,4 +68,4 @@ const deleteActor = async (req, res) => {
   }
 };
 
-module.exports = { getActors, postActor, putActor, deleteActor };
+module.exports = { getActors, getActor, postActor, putActor, deleteActor };
