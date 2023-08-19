@@ -3,7 +3,7 @@ const Movies = require("../models/movies.models");
 const getMovies = async (req, res) => {
   try {
     console.log("Get movies")
-    const allMovies = await Movies.find().populate("director").populate("cast");
+    const allMovies = await Movies.find().populate("cast");
     return res.status(200).json(allMovies);
   } catch (error) {
     return res.status(500).json(error);
