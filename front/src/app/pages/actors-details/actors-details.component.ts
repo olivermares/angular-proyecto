@@ -12,6 +12,7 @@ import { ActorsService } from 'src/app/shared/services/actors.service';
 export class ActorsDetailsComponent {
   actorForm!: FormGroup;
   actor= this.actorsService.actorData;
+  newActor = this.actorsService.actorData;
   actorAux!: ActorsI;
 
   constructor(
@@ -22,19 +23,29 @@ export class ActorsDetailsComponent {
 
   ngOnInit(): void {
     this.actorForm = this.form.group({
-      name: ['', Validators.required],
-      image: ['', Validators.required],
-      biografy: [''],
-      country: [''],
+      name: [this.newActor.name, Validators.required],
+      image: [this.newActor.image, Validators.required],
+      biografy: [this.newActor.biografy],
+      country: [this.newActor.country],
     })
+    this.actorForm.valueChanges.subscribe((changes: any) => {
+      this.newActor = changes;
+    });
 
   }
 
   update(){
-    console.log(this.actor)
+    this.actorsService
+    .putActor(this.newActor, this.actor._id)
+    .subscribe((data) => {
+      console.log(data);
+    });
   }
 
   drop(){
-    this.actorsService.deleteActor(this.actor._id)
+    this.actorsService.deleteActor(this.actor._id).subscribe((data) => {
+      console.log(data)
+    })
+    this.router.navigate(['/actors']);
   }
 }

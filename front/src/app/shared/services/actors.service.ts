@@ -30,9 +30,12 @@ export class ActorsService {
     return this.http.post(this.url, actor)
   }
 
-  deleteActor(id: any){
-    console.log(`${this.url}/`+1)
-    return this.http.delete(`${this.url}/`+1);
+  putActor(film: ActorsI, id: number){
+    return this.http.put(`${this.url}/${id}`, film)
+  }
+
+  deleteActor(id: string){
+    return this.http.delete(`${this.url}/${id}`);
   }
 
   clearActor() {
