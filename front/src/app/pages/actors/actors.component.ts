@@ -39,6 +39,7 @@ export class ActorsComponent {
 
   selectActor(actor: ActorsI){
     this.actorsService.actorData=actor;
+    this.actorsService.id= actor._id;
     this.router.navigate(["actors/" + actor._id]);
   }
 

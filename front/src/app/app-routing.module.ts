@@ -9,6 +9,9 @@ import { ActorsDetailsComponent } from './pages/actors-details/actors-details.co
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponentComponent } from './pages/not-found-component/not-found-component.component';
+import { authGuard } from './shared/guards/auth.guard';
+import { SecurePageAccessComponent } from './pages/secure-page-access/secure-page-access.component';
+
 
 
 const routes: Routes = [
@@ -17,7 +20,7 @@ const routes: Routes = [
   },{
     path:'movies', component: MoviesComponent 
   },{
-    path:'movies/:id', component: MoviesDetailsComponent
+    path:'movies/:id', component: MoviesDetailsComponent, canActivate: [authGuard]
   },{
     path:'actors', component: ActorsComponent
   },{
@@ -28,15 +31,21 @@ const routes: Routes = [
      path:'login', component: LoginComponent
    },
 
-  // Si no encuntra la ruta, redirige a /404
-  {  
-    path: '**', redirectTo: '/404'
-  },
+  // // Si no encuntra la ruta, redirige a /404
+  // {  
+  //   path: '**', redirectTo: '/404'
+  // },
 
-  // Pagina 404. Se muestra si no se encuentra la ruta. 
+  // // Pagina 404. Se muestra si no se encuentra la ruta. 
+  // {  
+  //  path: '404', component: NotFoundComponentComponent
+  // },
+
   {  
-   path: '404', component: NotFoundComponentComponent
-  },
+    path: 'securedPage', component: SecurePageAccessComponent
+   },
+   
+   
 
 ];
 

@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit{
     this.loginForm = this.form.group({
       // email: ["", [Validators.required, Validators.pattern("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$")]],
       // password: ["", [Validators.required, Validators.pattern("(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}")]]
-      email: ["", [Validators.required]],
+      email: ["", [Validators.required, Validators.email] ],
       password: ["", [Validators.required]],
     })
   }

@@ -1,7 +1,7 @@
 import { ActorsI } from "./actors.interfaces"
 
 export interface MoviesI{
-    _id?: number,
+    _id?: string,
     title: string,
     image: string,
     director?: string,
