@@ -1,28 +1,32 @@
 
     <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
-        <h2> Login </h2>
-        <div class="form-section">
-            <input class="form-section-input" type="email" placeholder="Email" formControlName="email" />
-            <p *ngIf="(submited && loginForm?.get('email')?.hasError('required'))">El campo es requerido</p>
-            <p *ngIf="(submited && loginForm?.get('email')?.hasError('pattern'))">No tiene formato valido</p>
-        </div>
-        <div class="form-section">
-            <input class="form-section-input" type="password" placeholder="Password" formControlName="password" />
-            <p *ngIf="(submited && loginForm?.get('password')?.hasError('required'))">El campo es requerido</p>
-            <p *ngIf="(submited && loginForm?.get('password')?.hasError('pattern'))">No tiene formato valido</p>
+        <h2 class="form-title"> Login </h2>
+        <div class="form-inputs">
+            <div class="form-inputs-section">
+                <input class="form-section-input" type="email" placeholder="Email" formControlName="email" />
+                <p *ngIf="(submited && loginForm?.get('email')?.hasError('required'))">El campo es requerido</p>
+                <p *ngIf="(submited && loginForm?.get('email')?.hasError('pattern'))">No tiene formato valido</p>
+            </div>
+            <div class="form-inputs-section">
+                <input class="form-section-input" type="password" placeholder="Password" formControlName="password" />
+                <p *ngIf="(submited && loginForm?.get('password')?.hasError('required'))">El campo es requerido</p>
+                <p *ngIf="(submited && loginForm?.get('password')?.hasError('pattern'))">No tiene formato valido</p>
+            </div>
         </div>
 
-        <p *ngIf="isLoginFailed" style="color: red"> {{errorMessage}}</p>
+        <div class="form-needs">
+            <p class="form-needs-text" *ngIf="isLoginFailed"> {{errorMessage}}</p>
+            <p class="form-needs-text" *ngIf="!isLoginFailed"> {{errorMessage}} </p>
+        </div>
         
-        <button>Entrar</button>
+        <button class="form-btn">Entrar</button>
     
-        <p  *ngIf="!isLoginFailed" style="color:white"> {{errorMessage}} </p>
+        
     
-        <p> ¿No tienes cuenta? <a routerLink="/register"> Registrarse </a> </p>
+        <p class="form-text"> ¿No tienes cuenta? <a routerLink="/register"> Registrarse </a> </p>
 
-        <p>  <a routerLink="/"> Volver a HOME </a> </p>
+        <p class="form-back"><a routerLink="/"><i class="fa-solid fa-angle-left"></i> HOME</a></p>
 
-    
     </form>
     
     

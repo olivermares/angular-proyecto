@@ -1,26 +1,39 @@
 .main {
   padding-top: 12vh;
-  height: 85vh;
+  // height: 85vh;
   display: flex;
   justify-content: center;
   gap: 64px;
 
   .card{
+    width: 400px;
     &-img{
-      width: 400px;
+      width: 100%;
+    }
+    &-p{
+      font-weight: 500;
+      margin-top: 15px;
+      font-size: 20px;
+      font-family: 'Roboto Condensed', sans-serif;
+      width: 100%;
+    }
+    &-name{
+      font-weight: 700;
+      font-size: 30px;
+      font-family: 'Roboto Condensed', sans-serif;
+      width: 100%;
     }
   }
 
   .formulary{
     background-color: whitesmoke;
     padding: 20px;
-    height: 40%;
     font-size: 25px;
     border: 1px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+
 
     &-add{
       background-color: whitesmoke;
@@ -31,19 +44,37 @@
         label{
           background-color: whitesmoke;
         }
+        p{
+          background-color: whitesmoke
+        }
 
         input{
           margin-left: 5px;
           background-color: rgb(255, 189, 109);
           font-size: 20px;
           border: 1px;
+          width: 95%;
           border-radius: 5px;
           padding: 5px 5px;
-          margin-bottom: 10px;  
+          margin-bottom: 10px;
+          font-family: 'Roboto Condensed', sans-serif;
+        }
+        textarea{
+          width: 315px;
+          height: 100px;
+          margin-left: 5px;
+          background-color: rgb(255, 189, 109);
+          font-size: 20px;
+          border: 1px;
+          border-radius: 5px;
+          padding: 5px 5px;
+          margin-bottom: 10px;
+          font-family: 'Roboto Condensed', sans-serif;  
         }
       }
 
       &-btns{
+        margin-top: 120px;
         background-color: whitesmoke;
         display: flex;
         flex-direction: column;
