@@ -20,6 +20,10 @@ import { InfoComponent } from './shared/components/info/info.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 
+import { RouterModule } from '@angular/router';
+import { SecurePageAccessComponent } from './pages/secure-page-access/secure-page-access.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +37,8 @@ import { LoginComponent } from './pages/login/login.component';
     ActorsDetailsComponent,
     InfoComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    SecurePageAccessComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +46,7 @@ import { LoginComponent } from './pages/login/login.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent],
