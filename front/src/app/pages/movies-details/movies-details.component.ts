@@ -19,12 +19,14 @@ export class MoviesDetailsComponent implements OnInit {
   actors!: ActorsI[];
   castList: string[] = new Array();
   castInMovie : string[] = new Array();
+  id!: string | null;
 
   constructor(
     private movieService: MoviesService,
     private router: Router,
     private actorsService: ActorsService,
-    private form: FormBuilder
+    private form: FormBuilder,
+    private activatedRoute:ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -37,6 +39,9 @@ export class MoviesDetailsComponent implements OnInit {
     this.movieForm.valueChanges.subscribe((changes: any) => {
       this.newMovie = changes;
     });
+    this.activatedRoute.paramMap.subscribe(params=>{
+      this.id= params.get("id")
+    })
 
     this.actorsService.getActors().subscribe((data: any) => {
       this.castInMovie = [...this.newMovie.cast]
@@ -44,6 +49,9 @@ export class MoviesDetailsComponent implements OnInit {
         (actor: ActorsI) => this.compareClient(actor) // lista con los actores no casteados
       );
     });
+    this.movieService.getMovie(this.id).subscribe((data: any) =>{
+      this.movie={...data}
+    })
   }
 
   compareClient(actor: ActorsI) {

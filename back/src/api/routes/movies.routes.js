@@ -1,10 +1,11 @@
 const express = require("express")
-const {getMovies,postMovie,putMovie,deleteMovie, comprabar} = require("../controllers/movies.controllers")
+const {getMovies,getMovie,postMovie,putMovie,deleteMovie, comprabar} = require("../controllers/movies.controllers")
 const upload = require("../../middlewares/upload.file");
 
 const moviesRoutes = express.Router();
 
 moviesRoutes.get("/", getMovies);
+moviesRoutes.get("/:id", getMovie);
 moviesRoutes.post("/", postMovie);
 moviesRoutes.put("/:id", putMovie);
 moviesRoutes.delete("/:id", deleteMovie);
