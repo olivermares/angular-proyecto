@@ -2,68 +2,63 @@
 <main class="main">
   <div class="card">
     <img class="card-img" src="{{ movie.image }}" alt=" {{ movie }}" />
-  </div>
-  <div class="formulary">
-    <form class="formulary-add" [formGroup]="movieForm">
-      <div class="formulary-add-element">
-        <label name="title">Titulo:</label>
-        <input
-          type="text"
-          name="title"
-          id="title"
-          placeholder="{{ movie.title }}"
-          formControlName="title"
-        />
-      </div>
-      <div class="formulary-add-element">
-        <label name="image">Url Imagen:</label>
-        <input
-          type="text"
-          name="image"
-          id="imgae"
-          placeholder="{{ movie.image }}"
-          formControlName="image"
-        />
-      </div>
-      <div class="formulary-add-element">
-        <label name="director">Director:</label>
-        <input
-          type="text"
-          name="director"
-          id="director"
-          placeholder="director"
-          formControlName="director"
-        />
-      </div>
-      <button (click)="update()">Actualizar</button>
-      <button (click)="drop()">Borrar</button>
-    </form>
-  </div>
-  <div>
-    <div *ngFor="let actor of movie.cast">
-      <label>
-        <input
-          type="checkbox"
-          value="{{ actor._id }}"
-          (change)="onCheckboxNoCast($event)"
-        />
-        {{ actor.name }}
-      </label>
+    <h1 class="card-title">Título: {{movie.title}}</h1>
+    <h1 *ngIf="movie.director" class="card-title">Director: {{movie.director}}</h1>
+    <h1 *ngIf="movie.cast.length  >= 1" class="card-title">Casting:</h1>
+    <div *ngFor="let actor of movie.cast" class="card-cast">
+      <input type="checkbox" value="{{ actor._id }}" (change)="onCheckboxNoCast($event)"/>
+      <label>{{ actor.name }}</label>
     </div>
-    <button (click)="noCast()">Casting</button>
   </div>
-  <div>
-    <div *ngFor="let actor of actors">
-      <label>
-        <input
-          type="checkbox"
-          value="{{ actor._id }}"
-          (change)="onCheckboxCast($event)"
-        />
-        {{ actor.name }}
-      </label>
-    </div>
-    <button (click)="cast()">no Casting</button>
+
+  <div class="form-list-flex">
+    <section class="formulary">
+      <form class="formulary-add" [formGroup]="movieForm">
+        <div class="formulary-add-element">
+          <label name="title">Titulo:</label>
+          <input
+            type="text"
+            name="title"
+            id="title"
+            formControlName="title"
+          />
+        </div>
+        <div class="formulary-add-element">
+          <label name="image">Url Imagen:</label>
+          <input
+            type="text"
+            name="image"
+            id="imgae"
+            formControlName="image"
+          />
+        </div>
+        <div class="formulary-add-element">
+          <label name="director">Director:</label>
+          <input
+            type="text"
+            name="director"
+            id="director"
+            formControlName="director"
+          />
+        </div>
+      </form>
+      <div class="formulary-add-btns">
+        <button (click)="update()">Actualizar</button>
+        <button (click)="drop()">Borrar</button>
+      </div>
+    </section>
+    <section class="actors">
+        <legend class="actors-title">Actores</legend>
+        <ul class="actors-scroll">
+          <li class="actors-scroll-item" *ngFor="let actor of actors">
+            <input type="checkbox" value="{{ actor._id }}" id="{{actor._id}}" (change)="onCheckboxCast($event)"/>
+            <label for="{{actor._id}}">{{ actor.name }}</label>
+          </li>
+        </ul>
+        <button class="actors-btn" (click)="cast()">Cast</button>
+    </section>
   </div>
+
+  
 </main>
 <app-footer />

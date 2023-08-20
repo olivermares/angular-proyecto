@@ -6,12 +6,13 @@
       <h4 class="gallery-card-h4">{{ movie.title }}</h4>
     </div>
   </div>
-  <div class="formulary">
-    <h1 class="formulary-title">¿Quieres añadir una película?</h1>
-    <form class="formulary-add" [formGroup]="moviesForm" (ngSubmit)="addMovie()">
-      <div class="formulary-inputs">
-        <input class="formulary-inputs-item" type="text" placeholder="title" formControlName="title" />
-        <input class="formulary-inputs-item" type="text" placeholder="image" formControlName="image" />
+    <form class="formulary" [formGroup]="moviesForm" (ngSubmit)="addMovie()">
+      <div class="formulary-section">
+        <h1 class="formulary-section-title">Añade una peli</h1>
+        <div class="formulary-section-inputs">
+          <input class="formulary-section-inputs-item" type="text" placeholder="title" formControlName="title" />
+          <input class="formulary-section-inputs-item" type="text" placeholder="image" formControlName="image" />
+        </div>
       </div>
       <div class="formulary-btns">
         <button class="formulary-btns-item" type="submit" [disabled]="!moviesForm.valid">
@@ -19,7 +20,6 @@
         </button>
       </div>
     </form>
-  </div>
 </main>
 
 <!-- <app-footer /> -->
