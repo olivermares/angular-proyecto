@@ -30,9 +30,24 @@
       font-size: 25px;
     }
 
+    button{
+      &:hover{
+        background-color: #F5B540;
+        transition-duration: 500ms;
+      }
+      font-size: 25px;
+      padding: 5px 20px;
+      background-color: whitesmoke;
+      color: black;
+      border: 1px;
+      border-radius: 50px;
+    }
+
     &-a:hover{
       color: #F5B540;
     }
+
+
   }
 }
 
