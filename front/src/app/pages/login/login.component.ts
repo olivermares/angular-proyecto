@@ -28,26 +28,27 @@ export class LoginComponent implements OnInit{
   }
 
   login(){
-    
+
     console.log('Estoy en el login');
 
-    
-    // this.submited = true;
-    // if(this.loginForm.valid){
-    //   console.log('Datos del login correctos');
-    //   this.api.login(this.loginForm.value).subscribe((data:any) => {       
-        
-    //     localStorage.setItem('token', data.token)
-    //     localStorage.setItem('user', JSON.stringify(data.user))
-    //     this.isLoginFailed = false
-    //     this.router.navigate(['/']);
-    //   },
-    //   err=> {
-    //     console.log('Login incorrecto: ', err.error.message);         
-    //     this.errorMessage = err.error.message;
-    //     this.isLoginFailed = true
 
-    //   })
-      
+    this.submited = true;
+    if(this.loginForm.valid){
+      console.log('Datos del login correctos');
+      this.api.login(this.loginForm.value).subscribe((data:any) => {
+
+        localStorage.setItem('token', data.token)
+        localStorage.setItem('user', JSON.stringify(data.user))
+        this.isLoginFailed = false
+        this.router.navigate(['/']);
+      },
+      err=> {
+        console.log('Login incorrecto: ', err);
+        this.errorMessage = err.error.message;
+        this.isLoginFailed = true
+
+      })
+
+  }
   }
 }
