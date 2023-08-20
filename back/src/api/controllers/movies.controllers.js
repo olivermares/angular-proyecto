@@ -10,6 +10,17 @@ const getMovies = async (req, res) => {
   }
 };
 
+const getMovie = async (req, res) => {
+  try {
+    console.log("Get movie");
+    const { id } = req.params;
+    const movie = await Movies.findById(id);
+    return res.status(200).json(movie);
+  } catch (error) {
+    return res.status(500).json(error);
+  }
+};
+
 const postMovie = async (req, res) => {
   try {
     console.log("Post movie")
@@ -55,4 +66,4 @@ const deleteMovie = async (req, res) => {
   }
 };
 
-module.exports = { getMovies, postMovie, putMovie, deleteMovie};
+module.exports = { getMovies, getMovie, postMovie, putMovie, deleteMovie};

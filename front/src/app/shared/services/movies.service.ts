@@ -23,6 +23,10 @@ export class MoviesService {
     return this.http.get(this.url)
   }
 
+  getMovie(id: any){
+    return this.http.get(`${this.url}/${id}`)
+  }
+
   editData(movie: MoviesI) {
     this.movieData = movie;
   }
