@@ -6,9 +6,18 @@
     <p class="card-p">{{actor.name}}</p>
     <p class="card-p">{{actor.country}}</p>
     <p class="card-p">{{actor.biografy}}</p>
+    <p *ngIf="!api.getToken()"> <a routerLink="/login"> Login </a> para modificar los datos  </p>
   </div>
 
-  <div class="formulary">
+
+
+
+  
+
+  
+
+
+  <div class="formulary" *ngIf="api.getToken()">
     
     <form class="formulary-add" [formGroup]="actorForm">
       <div class="formulary-add-element">
@@ -34,5 +43,9 @@
     </div>
   </div>
 </main>
+
+
+
+<!-- <p *ngif="!authService.getToken()"> Para editar los datos del actor es necesario estar registarado. </p> -->
 
 <app-footer />
