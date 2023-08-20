@@ -22,6 +22,7 @@ import { LoginComponent } from './pages/login/login.component';
 
 import { RouterModule } from '@angular/router';
 import { SecurePageAccessComponent } from './pages/secure-page-access/secure-page-access.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { SecurePageAccessComponent } from './pages/secure-page-access/secure-pag
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -4,6 +4,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, observable } from 'rxjs';
 import { ActorsI } from 'src/app/models/actors.interfaces';
 import { ActorsService } from 'src/app/shared/services/actors.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
+
+
 
 @Component({
   selector: 'app-actors-details',
@@ -20,7 +23,9 @@ export class ActorsDetailsComponent {
   private actorsService: ActorsService,
   private router: Router, 
   private form: FormBuilder,
-  private activatedRoute:ActivatedRoute
+  private activatedRoute:ActivatedRoute,
+  public api: AuthService
+  
   ){}
 
   ngOnInit(): void {
