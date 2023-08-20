@@ -13,24 +13,20 @@ export class RegisterComponent implements OnInit{
 
   registerForm!: FormGroup;
   submited: boolean = false;
+  errorMessage = ""
 
   constructor(private form: FormBuilder, private api: AuthService, private router: Router){}
 
   ngOnInit(): void {
     this.registerForm = this.form.group({
       email: ["", [Validators.required, Validators.pattern("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$")]],
-      password: ["", [Validators.required, Validators.pattern("(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}")]]
+      password: ["", [Validators.required]]
     })
     }
 
 
-  registrar(){
-
-    console.log('Estoy en registrar');
-    console.log('Datos valido = ', this.registerForm.valid);
-    console.log('Datos registro = ', this.registerForm.value);
-    
-    
+  registrar(){ 
+   
 
     this.submited = true;
     if(this.registerForm.valid){
@@ -38,7 +34,12 @@ export class RegisterComponent implements OnInit{
         console.log('Registro correcto');
         console.log(data);
         this.router.navigate(['/']);
-      })   
+      },
+      error => {
+        console.log(error.error.message)
+        this.errorMessage = error.error.message
+      }
+      )   
     }
   }
 

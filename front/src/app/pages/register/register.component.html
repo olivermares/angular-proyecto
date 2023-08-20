@@ -1,5 +1,3 @@
-<p>register works!</p>
-
 <form [formGroup]="registerForm" (ngSubmit)="registrar()">
     <div>
         <input type="email" placeholder="Email" formControlName="email" />
@@ -12,5 +10,9 @@
         <p *ngIf="(submited && registerForm?.get('password')?.hasError('pattern'))">No tiene formato valido</p>
 
     </div>
-    <button>Resgistrar</button>
+    
+    <p *ngIf="errorMessage !== ' ' ">{{errorMessage}}</p>    
+    
+    <button type="submit" [disabled]="!registerForm.valid"> REGISTRAR </button>
+
 </form>
